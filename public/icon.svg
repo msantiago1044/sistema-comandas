@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Fondo circular naranja -->
+  <circle cx="32" cy="32" r="32" fill="#f97316"/>
+  <!-- Campana -->
+  <path d="M32 10 C22 10 16 18 16 26 L16 38 L12 42 L52 42 L48 38 L48 26 C48 18 42 10 32 10Z"
+        fill="white"/>
+  <!-- Base de la campana -->
+  <rect x="22" y="42" width="20" height="4" rx="2" fill="white"/>
+  <!-- Badajo (bolita abajo) -->
+  <circle cx="32" cy="50" r="4" fill="white"/>
+  <!-- Brillo pequeño -->
+  <circle cx="24" cy="20" r="3" fill="rgba(255,255,255,0.35)"/>
+</svg>
