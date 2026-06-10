@@ -1,0 +1,28 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Flash de alerta para cocina cuando llega un nuevo pedido */
+@keyframes flash-alert {
+  0%   { background-color: transparent; }
+  20%  { background-color: rgba(245, 158, 11, 0.25); }
+  40%  { background-color: transparent; }
+  60%  { background-color: rgba(245, 158, 11, 0.15); }
+  100% { background-color: transparent; }
+}
+
+body.flash-alerta {
+  animation: flash-alert 0.6s ease-out;
+}
+
+/* Scrollbar discreta en paneles de comandas */
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: #d1d5db; border-radius: 999px; }
+
+/* Evitar tap-highlight azul en móviles */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Selección de texto en campo de PIN */
+.select-all { user-select: all; }
