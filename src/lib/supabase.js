@@ -127,3 +127,27 @@ export async function cerrarSala(salaId) {
     .eq('id', salaId)
   return { error }
 }
+
+/**
+ * Carga historial de comandas pagadas con paginación
+ * @param {string} salaId
+ * @param {number} pagina  - página (0-indexed)
+ * @param {number} porPagina - registros por página
+ */
+export async function cargarHistorial(salaId, pagina = 0, porPagina = 30) {
+  const desde = pagina * porPagina
+  const hasta = desde + porPagina - 1
+
+  const { data, error, count } = await supabase
+    .from('comandas')
+    .select(`
+      *,
+      mesero:meseros (id, nombre)
+    `, { count: 'exact' })
+    .eq('sala_id', salaId)
+    .eq('estado', ESTADOS.PAGADO)
+    .order('cobrado_at', { ascending: false })
+    .range(desde, hasta)
+
+  return { historial: data ?? [], total: count ?? 0, error }
+}
